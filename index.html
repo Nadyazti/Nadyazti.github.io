@@ -3,11 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Nadya</title>
+    <title>Nadya. | Portfolio</title>
+    <!-- Menggunakan font modern mirip referensi -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5; /* Warna aksen biru keunguan */
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --text: #334155;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #ffffff; color: var(--text); line-height: 1.6; scroll-behavior: smooth; }
+        
+        /* Navigasi Atas */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 25px 5%; max-width: 1200px; margin: auto; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--dark); letter-spacing: 1px; }
+        .logo span { color: var(--primary); }
+        .nav-links a { margin-left: 25px; text-decoration: none; color: var(--text); font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        
+        /* Bagian Hero (Utama) */
+        .hero { height: 75vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 0 5%; max-width: 1200px; margin: auto; }
+        .hero-subtitle { font-size: 0.85rem; letter-spacing: 3px; color: #64748b; text-transform: uppercase; margin-bottom: 15px; }
+        .hero h1 { font-size: 4rem; color: var(--dark); font-weight: 700; margin-bottom: 25px; line-height: 1.1; }
+        
+        /* Efek Ngetik (Typewriter) */
+        .typewrite-wrapper { 
+            color: var(--dark); 
+            border-right: 4px solid var(--primary); 
+            padding-right: 5px; 
+            animation: blink 0.75s step-end infinite; 
+        }
+        @keyframes blink { 50% { border-color: transparent; } }
+
+        /* Tombol */
+        .hero-btns { margin-top: 40px; }
+        .btn { padding: 14px 28px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; display: inline-block; }
+        .btn-primary { background: var(--primary); color: white; margin-right: 15px; box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3); }
+        .btn-primary:hover { background: #4338ca; transform: translateY(-2px); }
+        .btn-outline { border: 1px solid #cbd5e1; color: var(--dark); }
+        .btn-outline:hover { border-color: var(--dark); }
+
+        /* Bagian Proyek */
+        .projects { padding: 100px 5%; background: var(--light); }
+        .section-title { font-size: 2.2rem; margin-bottom: 50px; color: var(--dark); font-weight: 700; max-width: 1200px; margin-left: auto; margin-right: auto; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; }
+        
+        .card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.03); transition: 0.4s; padding: 40px 30px; border: 1px solid #f1f5f9; }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .card h3 { color: var(--dark); margin-bottom: 15px; font-size: 1.3rem; }
+        .card p { font-size: 0.95rem; color: #64748b; margin-bottom: 25px; line-height: 1.7; }
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tags span { font-size: 0.75rem; background: #e0e7ff; padding: 6px 12px; border-radius: 20px; color: var(--primary); font-weight: 600; letter-spacing: 0.5px;}
+
+        /* Footer */
+        footer { text-align: center; padding: 80px 20px; background: white; }
+        footer h2 { font-size: 2.5rem; color: var(--dark); margin-bottom: 15px; font-weight: 700;}
+        footer h2 span { color: var(--primary); }
+        footer p { font-size: 1rem; color: #64748b; margin-bottom: 30px;}
+    </style>
 </head>
-<body style="font-family: Arial, sans-serif; text-align: center; margin-top: 50px;">
-    <h1>Halo! Saya Nadya.</h1>
-    <p>Selamat datang di website portofolio saya.</p>
-    <p>Website ini sedang dalam tahap pengembangan...</p>
+<body>
+
+    <nav>
+        <div class="logo">NADYA<span>.</span></div>
+        <div class="nav-links">
+            <a href="#about">ABOUT</a>
+            <a href="#projects">PROJECTS</a>
+            <a href="#contact">CONTACT</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="about">
+        <div class="hero-subtitle">MECHATRONICS ENGINEERING & AUTOMATION</div>
+        <h1>Hello There, <br>I'm <span class="typewrite-wrapper" id="typewriter"></span></h1>
+        <p style="max-width: 550px; color: #64748b; margin-top: 10px; font-size: 1.05rem;">
+            Saya tidak hanya membangun sistem—saya memastikan logika teknik, pemrosesan citra, dan kontrol otomatis terintegrasi dengan sempurna untuk memberikan solusi nyata.
+        </p>
+        <div class="hero-btns">
+            <a href="#projects" class="btn btn-primary">Lihat Proyek</a>
+            <a href="#contact" class="btn btn-outline">Hubungi Saya</a>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <h2 class="section-title">Featured Projects.</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Sistem Deteksi APD (YOLOv8)</h3>
+                <p>Merancang alat pemantau keselamatan pekerja berbasis Machine Vision menggunakan model jaringan YOLOv8 dan antarmuka GUI CustomTkinter.</p>
+                <div class="tags"><span>YOLOv8</span><span>Python</span><span>OpenCV</span></div>
+            </div>
+            <div class="card">
+                <h3>Integrasi Modbus TCP PLC</h3>
+                <p>Mengonfigurasi komunikasi jaringan antar-PLC (Schneider Modicon & Beckhoff) untuk pertukaran data operasional dan otomatisasi industri.</p>
+                <div class="tags"><span>PLC</span><span>Modbus TCP</span></div>
+            </div>
+            <div class="card">
+                <h3>EKG Wireless Berbasis AI</h3>
+                <p>Pengembangan perangkat monitoring sinyal EKG nirkabel yang terintegrasi machine learning untuk mendeteksi indikasi sleep apnea secara dini.</p>
+                <div class="tags"><span>ESP32</span><span>TensorFlow</span><span>IoT</span></div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2>Let's build something <span>impactful</span> together.</h2>
+        <p>Terbuka untuk diskusi mengenai rekayasa perangkat lunak, otomatisasi, atau sekadar bertukar ide.</p>
+        <p style="margin-top: 40px; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase;">&copy; 2026 Nadya Farastanti</p>
+    </footer>
+
+    <!-- Script untuk efek ngetik -->
+    <script>
+        const words = ["Nadya.", "an Engineer.", "a Visionary."];
+        let i = 0;
+        let timer;
+        
+        function typingEffect() {
+            let word = words[i].split("");
+            var loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('typewriter').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2500); // Jeda sebelum teks dihapus
+                    return false;
+                };
+                timer = setTimeout(loopTyping, 120); // Kecepatan ngetik
+            };
+            loopTyping();
+        }
+
+        function deletingEffect() {
+            let word = words[i].split("");
+            var loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typewriter').innerHTML = word.join("");
+                } else {
+                    if (words.length > (i + 1)) {
+                        i++;
+                    } else {
+                        i = 0; // Ulangi dari kata pertama
+                    };
+                    typingEffect();
+                    return false;
+                };
+                timer = setTimeout(loopDeleting, 80); // Kecepatan menghapus
+            };
+            loopDeleting();
+        }
+
+        typingEffect();
+    </script>
 </body>
 </html>
