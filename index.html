@@ -53,4 +53,394 @@
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; }
         
         .card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.03); transition: 0.4s; padding: 35px 30px; border: 1px solid #f1f5f9; cursor: pointer; }
-        .card:hover { transform: translateY(-8px); box-shadow: 0 10px 30px rgba(0,0
+        .card:hover { transform: translateY(-8px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-color: var(--primary-light); }
+        .card h3 { color: var(--dark); margin-bottom: 15px; font-size: 1.25rem; }
+        .card p { font-size: 0.9rem; color: var(--text); margin-bottom: 25px; line-height: 1.6; }
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tags span { font-size: 0.75rem; background: var(--primary-light); padding: 5px 12px; border-radius: 20px; color: var(--primary); font-weight: 600; }
+
+        /* MODAL / POP-UP BARU */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(15, 23, 42, 0.7); backdrop-filter: blur(5px); opacity: 0; transition: opacity 0.3s ease; }
+        .modal.show { opacity: 1; }
+        .modal-content { background-color: #fff; margin: 3% auto; border-radius: 16px; width: 92%; max-width: 850px; position: relative; transform: translateY(-20px); transition: transform 0.3s ease; display: flex; flex-direction: column; max-height: 90vh; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
+        .modal.show .modal-content { transform: translateY(0); }
+        
+        /* Modal Header Bar */
+        .modal-header-bar { display: flex; justify-content: space-between; align-items: center; padding: 20px 30px; border-bottom: 1px solid #f1f5f9; background: white; z-index: 10; }
+        .modal-header-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; color: #94a3b8; text-transform: uppercase; }
+        .close-btn { color: #94a3b8; font-size: 28px; cursor: pointer; transition: 0.2s; line-height: 1; }
+        .close-btn:hover { color: var(--dark); }
+        
+        /* Modal Body */
+        .modal-body { padding: 40px; overflow-y: auto; background: white; }
+        
+        /* Modal Hero Image */
+        .modal-hero-img { width: 100%; height: 280px; object-fit: cover; border-radius: 12px; margin-bottom: 30px; background-color: #f1f5f9; display: flex; align-items: center; justify-content: center; color: #94a3b8; border: 1px dashed #cbd5e1; }
+        
+        /* Modal Texts */
+        .modal-label-pill { display: inline-block; border: 1px solid var(--primary-light); color: var(--primary); padding: 6px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 0.5px; background: #fafafa; }
+        .modal-title { font-size: 2.2rem; color: var(--dark); margin-bottom: 15px; font-weight: 700; line-height: 1.2; letter-spacing: -0.5px; }
+        
+        /* Modal Outline Tags */
+        .modal-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+        .modal-tags span { font-size: 0.85rem; border: 1px solid #e2e8f0; padding: 6px 16px; border-radius: 6px; color: #64748b; font-weight: 500; }
+        
+        .modal-desc { font-size: 1.05rem; color: #475569; margin-bottom: 40px; line-height: 1.8; }
+        
+        /* Modal Gallery */
+        .gallery-title { font-size: 0.85rem; font-weight: 700; letter-spacing: 2px; color: var(--dark); margin-bottom: 20px; text-transform: uppercase; }
+        .modal-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
+        .photo-placeholder { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; height: 200px; display: flex; align-items: center; justify-content: center; color: #94a3b8; font-weight: 500; font-size: 0.9rem; text-align: center; padding: 20px; overflow: hidden; }
+        .photo-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Sertifikat / Achievement Modal Spesifik */
+        .cert-container { display: flex; justify-content: center; align-items: center; padding: 20px 0; }
+        .cert-container .photo-placeholder { height: auto; min-height: 500px; width: 100%; max-width: 600px; }
+
+        /* Footer */
+        footer { text-align: center; padding: 80px 20px; background: white; }
+        footer h2 { font-size: 2.5rem; color: var(--dark); margin-bottom: 15px; font-weight: 700;}
+        footer p { font-size: 1.1rem; color: var(--text); margin-bottom: 10px; }
+        .contact-links { margin-top: 25px; display: flex; justify-content: center; gap: 20px; }
+        .contact-links a { display: inline-block; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: 0.3s; border: 2px solid var(--primary); }
+        .btn-email { background: var(--primary); color: white; }
+        .btn-email:hover { background: #4338ca; border-color: #4338ca; }
+        .btn-linkedin { background: transparent; color: var(--primary); }
+        .btn-linkedin:hover { background: var(--primary-light); }
+        .location { margin-top: 35px; font-weight: 600; color: var(--dark); display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .footer-bottom { margin-top: 30px; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; color: #94a3b8; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">NADYA<span>.</span></div>
+        <div class="nav-links">
+            <a href="#about">ABOUT</a>
+            <a href="#projects">PROJECTS</a>
+            <a href="#contact">CONTACT</a>
+            <a href="CV-Nadya-Farastanti.pdf" download class="btn-download">DOWNLOAD CV &darr;</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="about">
+        <div class="hero-content">
+            <div class="tagline">ABOUT ME ✨</div>
+            <h1>Hello, I'm <span class="typewrite-wrapper" id="typewriter"></span></h1>
+            <p>A Mechatronics Engineering student engaging in the intersection of Hardware Integration and Industrial Automation.</p>
+            <p>My expertise ranges from developing technical prototypes like Automated PPE Detection using YOLOv8 and AI-Based Wireless ECGs, to integrating sensors, PLCs, and microcontrollers into functional engineering solutions.</p>
+            
+            <div class="milestones">
+                <div class="milestone-card" onclick="openModal('modal-cert1')">
+                    <span>01</span>
+                    <h4>Industrial Design Pub. Certificate (ECG)</h4>
+                </div>
+                <div class="milestone-card" onclick="openModal('modal-cert2')">
+                    <span>02</span>
+                    <h4>Wirausaha Merdeka (WMK) Completion</h4>
+                </div>
+                <div class="milestone-card" onclick="openModal('modal-cert3')">
+                    <span>03</span>
+                    <h4>PKM-KC Grant Recipient 2024</h4>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="DSC01870.JPG" alt="Nadya Farastanti">
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <h2 class="section-title">Featured Projects.</h2>
+        <div class="grid">
+            <div class="card" onclick="openModal('modal1')">
+                <h3>Automated PPE Detection System (GPS)</h3>
+                <p>Real-time Personal Protective Equipment (PPE) detection utilizing YOLOv26 algorithm and GPS integration.</p>
+                <div class="tags"><span>YOLOv26</span><span>PyQt</span><span>Hardware Assembly</span></div>
+            </div>
+            <div class="card" onclick="openModal('modal2')">
+                <h3>Multi-Robot Comms & Base Station</h3>
+                <p>Wireless communication protocols and telemetry data transmission to a centralized base station interface.</p>
+                <div class="tags"><span>Telemetry</span><span>Wireless Comms</span></div>
+            </div>
+            <div class="card" onclick="openModal('modal3')">
+                <h3>AI-Based Wireless ECG</h3>
+                <p>Wireless ECG monitoring prototype for real-time heart rate data acquisition.</p>
+                <div class="tags"><span>ESP32</span><span>ADS1293</span><span>IoT</span></div>
+            </div>
+            <div class="card" onclick="openModal('modal4')">
+                <h3>PPE Detection System (YOLOv8)</h3>
+                <p>Trained a YOLOv8 object detection model to classify 6 PPE types including helmets, safety glasses, and masks.</p>
+                <div class="tags"><span>YOLOv8</span><span>Computer Vision</span></div>
+            </div>
+            <div class="card" onclick="openModal('modal5')">
+                <h3>PKM-KC (IoT Production Metrics)</h3>
+                <p>Designed a portable production metrics measuring tool integrated with IoT using the MQTT protocol.</p>
+                <div class="tags"><span>MQTT</span><span>IoT</span><span>PKM-KC</span></div>
+            </div>
+            <div class="card" onclick="openModal('modal6')">
+                <h3>Miniature CIM System</h3>
+                <p>Automated sorting and counting of metallic and non-metallic objects using robotic arms and conveyors.</p>
+                <div class="tags"><span>SCARA Robot</span><span>Conveyor</span><span>Automation</span></div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2>Let’s build something <strong>impactful</strong> together.</h2>
+        <p>I am always open to discussing engineering, automation, or new opportunities.</p>
+        
+        <div class="contact-links">
+            <a href="mailto:nadyafarastanti02@gmail.com" class="btn-email">Email Me</a>
+            <a href="https://www.linkedin.com/in/nadya-farastanti" target="_blank" class="btn-linkedin">LinkedIn Profile</a>
+        </div>
+
+        <div class="location">
+            📍 Based in Batam, Indonesia
+        </div>
+
+        <div class="footer-bottom">&copy; 2026 Nadya Farastanti</div>
+    </footer>
+
+
+    <!-- ==============================================
+         KUMPULAN MODAL (JENDELA POP-UP PROYEK)
+         ============================================== -->
+         
+    <!-- Proyek 1 -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <div class="modal-header-bar">
+                <span class="modal-header-title">Final Year Thesis Project</span>
+                <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-hero-img">Header Image Placeholder (Ganti src di HTML)</div>
+                <div class="modal-label-pill">POLITEKNIK NEGERI BATAM</div>
+                <h2 class="modal-title">Automated PPE Detection System with GPS Integration</h2>
+                <div class="modal-tags">
+                    <span>YOLOv26</span><span>PyQt</span><span>Hardware Assembly</span><span>GPS Integration</span>
+                </div>
+                <p class="modal-desc">Assembled hardware enclosure, GPS module, and embedded vision setup for real-time Personal Protective Equipment (PPE) detection using YOLOv26 algorithm. Designed and built a PyQt desktop interface featuring live video streaming, telemetry monitoring, and GPS data display.</p>
+                
+                <div class="gallery-title">Gallery</div>
+                <div class="modal-gallery">
+                    <div class="photo-placeholder">Foto Galeri 1</div>
+                    <div class="photo-placeholder">Foto Galeri 2</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Proyek 2 -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <div class="modal-header-bar">
+                <span class="modal-header-title">Internal Project</span>
+                <span class="close-btn" onclick="closeModal('modal2')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-hero-img">Header Image Placeholder</div>
+                <div class="modal-label-pill">POLITEKNIK NEGERI BATAM</div>
+                <h2 class="modal-title">Multi-Robot Communication & Base Station Integration</h2>
+                <div class="modal-tags">
+                    <span>Telemetry</span><span>Wireless Comms</span>
+                </div>
+                <p class="modal-desc">Developed and configured inter-robot wireless communication protocols and telemetry data transmission to a centralized base station interface.</p>
+                
+                <div class="gallery-title">Gallery</div>
+                <div class="modal-gallery">
+                    <div class="photo-placeholder">Foto Galeri 1</div>
+                    <div class="photo-placeholder">Foto Galeri 2</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Proyek 3 -->
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <div class="modal-header-bar">
+                <span class="modal-header-title">Internal Project</span>
+                <span class="close-btn" onclick="closeModal('modal3')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-hero-img">Header Image Placeholder</div>
+                <div class="modal-label-pill">POLITEKNIK NEGERI BATAM</div>
+                <h2 class="modal-title">AI-Based Wireless ECG</h2>
+                <div class="modal-tags">
+                    <span>ESP32</span><span>ADS1293</span><span>IoT</span><span>PCB Design</span>
+                </div>
+                <p class="modal-desc">Successfully designed and developed a wireless ECG monitoring prototype using the ADS1293 sensor and ESP32 microcontroller for real-time heart rate data acquisition.</p>
+                
+                <div class="gallery-title">Gallery</div>
+                <div class="modal-gallery">
+                    <div class="photo-placeholder">Foto Galeri 1</div>
+                    <div class="photo-placeholder">Foto Galeri 2</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Proyek 4 -->
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <div class="modal-header-bar">
+                <span class="modal-header-title">Internal Project</span>
+                <span class="close-btn" onclick="closeModal('modal4')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-hero-img">Header Image Placeholder</div>
+                <div class="modal-label-pill">POLITEKNIK NEGERI BATAM</div>
+                <h2 class="modal-title">PPE Detection System Using YOLOv8</h2>
+                <div class="modal-tags">
+                    <span>YOLOv8</span><span>Computer Vision</span><span>Deep Learning</span>
+                </div>
+                <p class="modal-desc">Trained and deployed a YOLOv8 object detection model to classify 6 PPE types (helmets, safety glasses, masks, vests, gloves, and safety shoes).</p>
+                
+                <div class="gallery-title">Gallery</div>
+                <div class="modal-gallery">
+                    <div class="photo-placeholder">Foto Galeri 1</div>
+                    <div class="photo-placeholder">Foto Galeri 2</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Proyek 5 -->
+    <div id="modal5" class="modal">
+        <div class="modal-content">
+            <div class="modal-header-bar">
+                <span class="modal-header-title">Student Innovation Project</span>
+                <span class="close-btn" onclick="closeModal('modal5')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-hero-img">Header Image Placeholder</div>
+                <div class="modal-label-pill">KEMENDIKBUDRISTEK</div>
+                <h2 class="modal-title">PKM-KC: Portable IoT Production Metrics</h2>
+                <div class="modal-tags">
+                    <span>MQTT</span><span>IoT</span><span>Hardware Integration</span>
+                </div>
+                <p class="modal-desc">Designed and developed a portable production metrics measuring tool integrated with Internet of Things (IoT) using the MQTT protocol.</p>
+                
+                <div class="gallery-title">Gallery</div>
+                <div class="modal-gallery">
+                    <div class="photo-placeholder">Foto Galeri 1</div>
+                    <div class="photo-placeholder">Foto Galeri 2</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Proyek 6 -->
+    <div id="modal6" class="modal">
+        <div class="modal-content">
+            <div class="modal-header-bar">
+                <span class="modal-header-title">Internal Project</span>
+                <span class="close-btn" onclick="closeModal('modal6')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-hero-img">Header Image Placeholder</div>
+                <div class="modal-label-pill">POLITEKNIK NEGERI BATAM</div>
+                <h2 class="modal-title">Miniature Computer Integrated Manufacturing</h2>
+                <div class="modal-tags">
+                    <span>SCARA Robot</span><span>Conveyor</span><span>Industrial Automation</span>
+                </div>
+                <p class="modal-desc">Integrated a robotic arm, conveyor belt, and SCARA robot to automate sorting and counting of metallic and non-metallic objects.</p>
+                
+                <div class="gallery-title">Gallery</div>
+                <div class="modal-gallery">
+                    <div class="photo-placeholder">Foto Galeri 1</div>
+                    <div class="photo-placeholder">Foto Galeri 2</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================================
+         KUMPULAN MODAL (JENDELA SERTIFIKAT)
+         ============================================== -->
+    <div id="modal-cert1" class="modal">
+        <div class="modal-content" style="max-width: 650px;">
+            <div class="modal-header-bar">
+                <span class="modal-header-title">Industrial Design Publication (DJKI)</span>
+                <span class="close-btn" onclick="closeModal('modal-cert1')">&times;</span>
+            </div>
+            <div class="modal-body cert-container">
+                <div class="photo-placeholder">Tempat Scan Sertifikat DJKI<br>(Ganti dengan tag img)</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-cert2" class="modal">
+        <div class="modal-content" style="max-width: 650px;">
+            <div class="modal-header-bar">
+                <span class="modal-header-title">WMK Flagship Program</span>
+                <span class="close-btn" onclick="closeModal('modal-cert2')">&times;</span>
+            </div>
+            <div class="modal-body cert-container">
+                <div class="photo-placeholder">Tempat Scan Sertifikat WMK</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-cert3" class="modal">
+        <div class="modal-content" style="max-width: 650px;">
+            <div class="modal-header-bar">
+                <span class="modal-header-title">PKM-KC Grant (Kemendikbudristek)</span>
+                <span class="close-btn" onclick="closeModal('modal-cert3')">&times;</span>
+            </div>
+            <div class="modal-body cert-container">
+                <div class="photo-placeholder">Tempat Scan Sertifikat PKM-KC</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Efek Typewriter
+        const words = ["Nadya!", "an Engineer.", "a Problem Solver."];
+        let i = 0; let timer;
+        function typingEffect() {
+            let word = words[i].split("");
+            var loopTyping = function() {
+                if (word.length > 0) { document.getElementById('typewriter').innerHTML += word.shift(); } 
+                else { setTimeout(deletingEffect, 2500); return false; };
+                timer = setTimeout(loopTyping, 100);
+            }; loopTyping();
+        }
+        function deletingEffect() {
+            let word = words[i].split("");
+            var loopDeleting = function() {
+                if (word.length > 0) { word.pop(); document.getElementById('typewriter').innerHTML = word.join(""); } 
+                else { if (words.length > (i + 1)) { i++; } else { i = 0; }; typingEffect(); return false; };
+                timer = setTimeout(loopDeleting, 60);
+            }; loopDeleting();
+        }
+        typingEffect();
+
+        // Logika Pop-up Modal
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = "block";
+            setTimeout(() => modal.classList.add("show"), 10);
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove("show");
+            setTimeout(() => {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto";
+            }, 300);
+        }
+
+        // Tutup modal jika area luar diklik
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal(event.target.id);
+            }
+        }
+    </script>
+</body>
+</html>
